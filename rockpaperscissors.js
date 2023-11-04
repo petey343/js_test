@@ -4,16 +4,12 @@
 // };
 
 
-let playerChoice = '';
 
 function playerSelects(buttonClass) {
-    playerChoice = document.querySelector(buttonClass).value;
-};
 
+    const playerChoice = document.querySelector(buttonClass).value;
+    let computerChoice = '';
 
-let computerChoice = '';
-
-function computerSelects() {
     const randomNumber = Math.random();
     if (randomNumber >= 0 && randomNumber < 1 / 3) {
         computerChoice = 'rock';
@@ -22,9 +18,7 @@ function computerSelects() {
     } else if (randomNumber >= 2 / 3) {
         computerChoice = 'scissors'
     };
-};
 
-function compareOutcome() {
     if (playerChoice === computerChoice) {
         document.querySelector('.outcome').innerHTML = 'TIE'
         console.log('It is a tie');
