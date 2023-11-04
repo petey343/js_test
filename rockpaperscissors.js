@@ -19,6 +19,10 @@ function playerSelects(buttonClass) {
         computerChoice = 'scissors'
     };
 
+    document.querySelector('.player-choice').innerHTML = 'You chose ' + playerChoice;
+    document.querySelector('.computer-choice').innerHTML = 'They chose ' + computerChoice;
+
+
     if (playerChoice === computerChoice) {
         document.querySelector('.outcome').innerHTML = 'TIE'
         console.log('It is a tie');
