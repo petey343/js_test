@@ -6,31 +6,40 @@
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css" />
 
-    <script>
-      const buttonOneElem = document.querySelector("button");
-    </script>
+    <script></script>
   </head>
 
   <body>
-    <button
-      class="button1"
-      onclick="
-    console.log('You clicked the button'); "
-    >
-      Test button
-    </button>
-    <button
-      onclick="
-      document.title = 'Testing JavaScript';
-      "
-    >
-      Test button 2
-    </button>
+    <div class="buttons">
+      <button
+        class="button1"
+        onclick="
+        console.log('You clicked the button'); "
+      >
+        Test button 1
+      </button>
+      <button
+        class="button2"
+        onclick="
+        if (document.title === 'Testing JavaScript') {
+          document.title = 'Test Document'
+        } else {
+          document.title = 'Testing JavaScript'
+        }
+          "
+      >
+        Test button 2
+      </button>
+    </div>
+
     <script>
-      console.log(document.querySelector("button"));
-      console.log(buttonOneElem);
+      const buttonOneElem = document.querySelector(".button1");
+      const buttonTwoElem = document.querySelector(".button2");
+      console.log(buttonOneElem.innerHTML);
+      console.log(buttonTwoElem);
       console.log(typeof buttonOneElem);
-      console.log(document.body);
+      console.log(typeof buttonTwoElem);
+      console.log(document.body.innerHTML);
     </script>
   </body>
 </html>
