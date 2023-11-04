@@ -1,0 +1,16 @@
+button {
+    display: block;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 100%;
+    background-color: darkred;
+    color: antiquewhite;
+}
+
+body {
+    background-color: #1f1f1f;
+}
+
+p {
+    background-color: skyblue;
+}
