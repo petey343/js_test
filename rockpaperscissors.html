@@ -9,24 +9,26 @@
 
   <body>
     <div class="buttons">
-      <button
-        class="rock"
-        onclick="
-        playerSelects('rock');"
-      >
-        Rock
-      </button>
-      <button class="paper" onclick="playerSelects('paper')">Paper</button>
-      <button class="scissors" onclick="playerSelects('scissors');">
-        Scissors
-      </button>
+      <div class="choice-buttons">
+        <button
+          class="rock"
+          onclick="
+          playerSelects('rock');"
+        >
+          Rock
+        </button>
+        <button class="paper" onclick="playerSelects('paper')">Paper</button>
+        <button class="scissors" onclick="playerSelects('scissors');">
+          Scissors
+        </button>
+      </div>
       <div class="result">
-        <div>
-          <p>You chose</p>
+        <div class="left-result">
+          <p>You chose:</p>
           <p class="player-choice"></p>
         </div>
-        <div>
-          <p>You chose</p>
+        <div class="right-result">
+          <p>They chose:</p>
           <p class="computer-choice"></p>
         </div>
       </div>
