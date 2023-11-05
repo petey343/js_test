@@ -4,38 +4,46 @@ const scores = JSON.parse(localStorage.getItem('jsonscores')) || {
     losses: 0
 };
 
-document.querySelector('.wins').innerHTML = `Wins: ${scores.wins}`;
-document.querySelector('.ties').innerHTML = `Ties: ${scores.ties}`;
-document.querySelector('.losses').innerHTML = `Losses: ${scores.losses}`;
+const pageElements = {
+    winLabel: document.querySelector('.wins'),
+    tieLabel: document.querySelector('.ties'),
+    loseLabel: document.querySelector('.losses'),
+    outcomeLabel: document.querySelector('.outcome'),
+    playerChoiceLabel: document.querySelector('.player-choice'),
+    computerChoiceLabel: document.querySelector('.computer-choice')
+};
 
-function playerSelects(buttonClass) {
-    // sets the player choice to a variable
-    const playerChoice = buttonClass;
+pageElements.winLabel.innerHTML = `Wins: ${scores.wins}`;
+pageElements.tieLabel.innerHTML = `Ties: ${scores.ties}`;
+pageElements.loseLabel.innerHTML = `Losses: ${scores.losses}`;
 
-    let computerChoice = '';
 
-    // randomly picks computer choice
+function computerChoice() {
     const randomNumber = Math.random();
     if (randomNumber >= 0 && randomNumber < 1 / 3) {
-        computerChoice = 'rock';
+        return 'rock';
     } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
-        computerChoice = 'paper';
+        return 'paper';
     } else if (randomNumber >= 2 / 3) {
-        computerChoice = 'scissors'
+        return 'scissors'
     };
+}
+
+function playerSelects(playerChoice) {
+    const computerChoiceResult = computerChoice();
 
     // shows the choices on screen
-    document.querySelector('.player-choice').innerHTML = playerChoice;
-    document.querySelector('.computer-choice').innerHTML = computerChoice;
+    pageElements.playerChoiceLabel.innerHTML = playerChoice;
+    pageElements.computerChoiceLabel.innerHTML = computerChoiceResult;
 
     // determines who wins and updates scores
-    if (playerChoice === computerChoice) {
+    if (playerChoice === computerChoiceResult) {
         outcome.ties();
-    } else if (playerChoice === 'rock' && computerChoice === 'scissors') {
+    } else if (playerChoice === 'rock' && computerChoiceResult === 'scissors') {
         outcome.winner();
-    } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
+    } else if (playerChoice === 'scissors' && computerChoiceResult === 'paper') {
         outcome.winner();
-    } else if (playerChoice === 'paper' && computerChoice === 'rock') {
+    } else if (playerChoice === 'paper' && computerChoiceResult === 'rock') {
         outcome.winner();
     } else {
         outcome.loser();
@@ -46,19 +54,19 @@ function playerSelects(buttonClass) {
 
 const outcome = {
     winner() {
-        document.querySelector('.outcome').innerHTML = 'YOU WIN'
+        pageElements.outcomeLabel.innerHTML = 'YOU WIN';
         scores.wins++;
-        document.querySelector('.wins').innerHTML = `Wins: ${scores.wins}`;
+        pageElements.winLabel.innerHTML = `Wins: ${scores.wins}`;
     },
     ties() {
-        document.querySelector('.outcome').innerHTML = 'TIE';
+        pageElements.outcomeLabel.innerHTML = 'TIE';
         scores.ties++;
-        document.querySelector('.ties').innerHTML = `Ties: ${scores.ties}`;
+        pageElements.tieLabel.innerHTML = `Ties: ${scores.ties}`;
     },
     loser() {
-        document.querySelector('.outcome').innerHTML = 'YOU LOSE'
+        pageElements.outcomeLabel.innerHTML = 'YOU LOSE';
         scores.losses++;
-        document.querySelector('.losses').innerHTML = `Losses: ${scores.losses}`;
+        pageElements.loseLabel.innerHTML = `Losses: ${scores.losses}`;
     }
 }
 
@@ -67,7 +75,7 @@ function resetScore() {
     scores.losses = 0;
     scores.ties = 0;
     localStorage.clear('jsonscores');
-    document.querySelector('.wins').innerHTML = `Wins: ${scores.wins}`;
-    document.querySelector('.ties').innerHTML = `Ties: ${scores.ties}`;
-    document.querySelector('.losses').innerHTML = `Losses: ${scores.losses}`;
+    pageElements.winLabel.innerHTML = `Wins: ${scores.wins}`;
+    pageElements.tieLabel.innerHTML = `Ties: ${scores.ties}`;
+    pageElements.loseLabel.innerHTML = `Losses: ${scores.losses}`;
 }
