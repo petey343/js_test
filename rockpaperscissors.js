@@ -1,17 +1,20 @@
-// function testFunction(buttonClass) {
-//     console.log(document.querySelector(buttonClass)
-//         .value);
-// };
+let scores = JSON.parse(localStorage.getItem('jsonscores')) || {
+    wins: 0,
+    ties: 0,
+    losses: 0
+};
 
-let wins = 0
-let ties = 0
-let losses = 0
+document.querySelector('.wins').innerHTML = `Wins: ${scores.wins}`;
+document.querySelector('.ties').innerHTML = `Ties: ${scores.ties}`;
+document.querySelector('.losses').innerHTML = `Losses: ${scores.losses}`;
 
 function playerSelects(buttonClass) {
+    // sets the player choice to a variable
+    const playerChoice = buttonClass;
 
-    const playerChoice = document.querySelector(buttonClass).value;
     let computerChoice = '';
 
+    // randomly picks computer choice
     const randomNumber = Math.random();
     if (randomNumber >= 0 && randomNumber < 1 / 3) {
         computerChoice = 'rock';
@@ -21,30 +24,52 @@ function playerSelects(buttonClass) {
         computerChoice = 'scissors'
     };
 
+    // shows the choices on screen
     document.querySelector('.player-choice').innerHTML = 'You chose ' + playerChoice;
     document.querySelector('.computer-choice').innerHTML = 'They chose ' + computerChoice;
 
-
+    // determines who wins and updates scores
     if (playerChoice === computerChoice) {
-        document.querySelector('.outcome').innerHTML = 'TIE';
-        ties++;
-        document.querySelector('.ties').innerHTML = `Ties: ${ties}`;
+        outcome.ties();
     } else if (playerChoice === 'rock' && computerChoice === 'scissors') {
-        document.querySelector('.outcome').innerHTML = 'YOU WIN'
-        wins++;
-        document.querySelector('.wins').innerHTML = `Wins: ${wins}`;
+        outcome.winner();
     } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
-        document.querySelector('.outcome').innerHTML = 'YOU WIN'
-        wins++;
-        document.querySelector('.wins').innerHTML = `Wins: ${wins}`;
+        outcome.winner();
     } else if (playerChoice === 'paper' && computerChoice === 'rock') {
-        document.querySelector('.outcome').innerHTML = 'YOU WIN'
-        wins++;
-        document.querySelector('.wins').innerHTML = `Wins: ${wins}`;
+        outcome.winner();
     } else {
-        document.querySelector('.outcome').innerHTML = 'YOU LOSE'
-        losses++;
-        document.querySelector('.losses').innerHTML = `Losses: ${losses}`;
+        outcome.loser();
     };
 
+    localStorage.setItem('jsonscores', JSON.stringify(scores));
 };
+
+const outcome = {
+    winner: function () {
+        document.querySelector('.outcome').innerHTML = 'YOU WIN'
+        scores.wins++;
+        document.querySelector('.wins').innerHTML = `Wins: ${scores.wins}`;
+    },
+    ties: function () {
+        document.querySelector('.outcome').innerHTML = 'TIE';
+        scores.ties++;
+        document.querySelector('.ties').innerHTML = `Ties: ${scores.ties}`;
+    },
+    loser: function () {
+        document.querySelector('.outcome').innerHTML = 'YOU LOSE'
+        scores.losses++;
+        document.querySelector('.losses').innerHTML = `Losses: ${scores.losses}`;
+    }
+}
+
+function resetScore() {
+    scores = {
+        wins: 0,
+        ties: 0,
+        losses: 0
+    };
+    localStorage.clear('jsonscores');
+    document.querySelector('.wins').innerHTML = `Wins: ${scores.wins}`;
+    document.querySelector('.ties').innerHTML = `Ties: ${scores.ties}`;
+    document.querySelector('.losses').innerHTML = `Losses: ${scores.losses}`;
+}
