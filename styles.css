@@ -13,6 +13,7 @@ button {
   background-color: darkred;
   color: antiquewhite;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 body {

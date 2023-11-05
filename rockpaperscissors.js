@@ -8,9 +8,9 @@ document.querySelector('.wins').innerHTML = `Wins: ${scores.wins}`;
 document.querySelector('.ties').innerHTML = `Ties: ${scores.ties}`;
 document.querySelector('.losses').innerHTML = `Losses: ${scores.losses}`;
 
-function playerSelects(buttonClass) {
+function playerSelects(playerChoice) {
     // sets the player choice to a variable
-    const playerChoice = buttonClass;
+    // const playerChoice = buttonClass;
 
     let computerChoice = '';
 
