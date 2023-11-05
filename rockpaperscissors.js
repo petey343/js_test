@@ -1,4 +1,15 @@
-const scores = JSON.parse(localStorage.getItem('jsonscores')) || {
+const localScores = {
+    save() {
+        localStorage.setItem('jsonscores', JSON.stringify(scores));
+    },
+    load() {
+        const scores = JSON.parse(localStorage.getItem('jsonscores'));
+        return scores;
+    }
+};
+
+// load or set scores to 0
+const scores = localScores.load() || {
     wins: 0,
     ties: 0,
     losses: 0
@@ -25,9 +36,9 @@ function computerChoice() {
     } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
         return 'paper';
     } else if (randomNumber >= 2 / 3) {
-        return 'scissors'
+        return 'scissors';
     };
-}
+};
 
 function playerSelects(playerChoice) {
     const computerChoiceResult = computerChoice();
@@ -49,7 +60,7 @@ function playerSelects(playerChoice) {
         outcome.loser();
     };
 
-    localStorage.setItem('jsonscores', JSON.stringify(scores));
+    localScores.save();
 };
 
 const outcome = {
@@ -68,7 +79,7 @@ const outcome = {
         scores.losses++;
         pageElements.loseLabel.innerHTML = `Losses: ${scores.losses}`;
     }
-}
+};
 
 function resetScore() {
     scores.wins = 0;
@@ -78,4 +89,4 @@ function resetScore() {
     pageElements.winLabel.innerHTML = `Wins: ${scores.wins}`;
     pageElements.tieLabel.innerHTML = `Ties: ${scores.ties}`;
     pageElements.loseLabel.innerHTML = `Losses: ${scores.losses}`;
-}
+};
