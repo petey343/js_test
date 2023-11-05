@@ -45,17 +45,17 @@ function playerSelects(buttonClass) {
 };
 
 const outcome = {
-    winner: function () {
+    winner() {
         document.querySelector('.outcome').innerHTML = 'YOU WIN'
         scores.wins++;
         document.querySelector('.wins').innerHTML = `Wins: ${scores.wins}`;
     },
-    ties: function () {
+    ties() {
         document.querySelector('.outcome').innerHTML = 'TIE';
         scores.ties++;
         document.querySelector('.ties').innerHTML = `Ties: ${scores.ties}`;
     },
-    loser: function () {
+    loser() {
         document.querySelector('.outcome').innerHTML = 'YOU LOSE'
         scores.losses++;
         document.querySelector('.losses').innerHTML = `Losses: ${scores.losses}`;
