@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:ital,wght@0,400;1,500;1,700&display=swap");
 
+* {
+  box-sizing: border-box;
+}
+
 button {
   /* display: block; */
   font-family: "Roboto Mono", monospace;
@@ -13,7 +17,6 @@ button {
 body {
   background-color: #1f1f1f;
   margin: 0;
-  box-sizing: border-box;
   font-family: "Roboto Mono", monospace;
 }
 
