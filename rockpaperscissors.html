@@ -5,27 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="./styles.css" />
-    <script src="./rockpaperscissors.js"></script>
   </head>
 
   <body>
     <div class="buttons">
       <button
-        value="rock"
-        class="button1"
+        class="rock"
         onclick="
-        playerSelects('.button1');"
+        playerSelects('rock');"
       >
         Rock
       </button>
-      <button value="paper" class="button2" onclick="playerSelects('.button2')">
-        Paper
-      </button>
-      <button
-        value="scissors"
-        class="button3"
-        onclick="playerSelects('.button3');"
-      >
+      <button class="paper" onclick="playerSelects('paper')">Paper</button>
+      <button class="scissors" onclick="playerSelects('scissors');">
         Scissors
       </button>
       <div class="result">
@@ -40,4 +32,5 @@
       </div>
     </div>
   </body>
+  <script src="./rockpaperscissors.js"></script>
 </html>
