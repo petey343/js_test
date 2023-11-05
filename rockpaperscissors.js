@@ -25,19 +25,14 @@ function playerSelects(buttonClass) {
 
     if (playerChoice === computerChoice) {
         document.querySelector('.outcome').innerHTML = 'TIE'
-        console.log('It is a tie');
     } else if (playerChoice === 'rock' && computerChoice === 'scissors') {
         document.querySelector('.outcome').innerHTML = 'YOU WIN'
-        console.log('You win');
     } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
         document.querySelector('.outcome').innerHTML = 'YOU WIN'
-        console.log('You win');
     } else if (playerChoice === 'paper' && computerChoice === 'rock') {
         document.querySelector('.outcome').innerHTML = 'YOU WIN'
-        console.log('You win');
     } else {
         document.querySelector('.outcome').innerHTML = 'YOU LOSE'
-        console.log('You lose')
     };
 
 };

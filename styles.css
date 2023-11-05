@@ -25,6 +25,7 @@ p {
   position: absolute;
   display: flex;
   flex-direction: column;
+  flex-shrink: 1;
   justify-content: center;
   align-items: center;
   top: 0;
@@ -32,10 +33,12 @@ p {
   height: 100%;
   width: 100%;
   gap: 40px;
+  padding-top: 40px;
+  max-height: 100vh;
 }
 
 .scoreboard {
-  margin-top: 100px;
+  margin-top: 60px;
   display: flex;
   color: antiquewhite;
   justify-content: space-around;
@@ -43,8 +46,6 @@ p {
 }
 
 .outcome {
-  height: 65px;
-  margin-top: 100px;
   color: antiquewhite;
   font-size: 60px;
 }
@@ -54,6 +55,6 @@ p {
   gap: 50px;
   color: antiquewhite;
   font-size: 24px;
-  margin-top: 30px;
+
   text-align: center;
 }
