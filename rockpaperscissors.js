@@ -25,8 +25,8 @@ function playerSelects(buttonClass) {
     };
 
     // shows the choices on screen
-    document.querySelector('.player-choice').innerHTML = 'You chose ' + playerChoice;
-    document.querySelector('.computer-choice').innerHTML = 'They chose ' + computerChoice;
+    document.querySelector('.player-choice').innerHTML = playerChoice;
+    document.querySelector('.computer-choice').innerHTML = computerChoice;
 
     // determines who wins and updates scores
     if (playerChoice === computerChoice) {
