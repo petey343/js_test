@@ -3,7 +3,9 @@
 //         .value);
 // };
 
-
+let wins = 0
+let ties = 0
+let losses = 0
 
 function playerSelects(buttonClass) {
 
@@ -24,15 +26,25 @@ function playerSelects(buttonClass) {
 
 
     if (playerChoice === computerChoice) {
-        document.querySelector('.outcome').innerHTML = 'TIE'
+        document.querySelector('.outcome').innerHTML = 'TIE';
+        ties++;
+        document.querySelector('.ties').innerHTML = `Ties: ${ties}`;
     } else if (playerChoice === 'rock' && computerChoice === 'scissors') {
         document.querySelector('.outcome').innerHTML = 'YOU WIN'
+        wins++;
+        document.querySelector('.wins').innerHTML = `Wins: ${wins}`;
     } else if (playerChoice === 'scissors' && computerChoice === 'paper') {
         document.querySelector('.outcome').innerHTML = 'YOU WIN'
+        wins++;
+        document.querySelector('.wins').innerHTML = `Wins: ${wins}`;
     } else if (playerChoice === 'paper' && computerChoice === 'rock') {
         document.querySelector('.outcome').innerHTML = 'YOU WIN'
+        wins++;
+        document.querySelector('.wins').innerHTML = `Wins: ${wins}`;
     } else {
         document.querySelector('.outcome').innerHTML = 'YOU LOSE'
+        losses++;
+        document.querySelector('.losses').innerHTML = `Losses: ${losses}`;
     };
 
 };
